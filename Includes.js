@@ -4,14 +4,12 @@ The includes() method of Array instances determines whether an array includes a 
 
 const includesMethod = (array, value, startingIndex) => {
   let doesItInclude = false;
-  //Only loop as long as doesItInclude is false, once it becomes true the loops should stop because the condition has been met.
-  if (!doesItInclude) {
-    // i is the starting index so they can determine if they want to start at a certian position, if nothing is specified, it starts at 0
-    for (let i = startingIndex || 0; i < array.length; i++) {
-      // If the condition is met, then change doesItInclude to true so the function can return true, otherwise it will remain false.
-      if (array[i] === value) {
-        doesItInclude = true;
-      }
+  // i is the starting index so you can start at a certain position. If nothing is specified, it will start at 0
+  for (let i = startingIndex || 0; i < array.length; i++) {
+    // If the condition is met, then change doesItInclude to true and stop looping so the function can return true, otherwise it will remain false.
+    if (array[i] === value) {
+      doesItInclude = true;
+      break;
     }
   }
   return doesItInclude;
